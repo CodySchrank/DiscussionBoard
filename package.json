@@ -1,0 +1,11 @@
+{
+  "name": "Discussion_Board",
+  "description": "ish",
+  "dependencies": {
+    "body-parser": "*",
+    "express": "*",
+    "moment": "*",
+    "mongoose": "*",
+    "validate.js": "^0.7.0"
+  }
+}

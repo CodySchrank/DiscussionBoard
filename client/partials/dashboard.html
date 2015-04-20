@@ -1,0 +1,48 @@
+<div ng-controller="dashboardController" class="row">
+	<div class="row">
+		<a href="#/" ng-click="logout()">Logout</a>
+	</div>
+	<h2>Welcome <span ng-bind="user.name"></span></h2>
+	<div class="row">
+		<input type="text">
+		<input type="submit" value="Search">
+	</div>
+	<div class="row">
+		<table>
+			<thead>
+				<tr>
+					<th>Category</th>
+					<th>Topic</th>
+					<th>User Name</th>
+					<th>Posts</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="topic in topics">
+					<td ng-bind="topic.category"></td>
+					<td><a href="#/topic/{{topic._id}}" ng-bind="topic.name"></td>
+					<td><a href="#/user/{{topic.author}}" ng-bind="topic.author"></td>
+					<td><span ng-bind="topic.messages | length"></span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<form>
+			<h5>Add A New Topic</h5>
+			<div>
+				<label>Topic:</label>
+				<input type="text" ng-model="newTopic.name">
+			</div>
+			<div>
+				<label>Description:</label>
+				<textarea ng-model="newTopic.description"></textarea>
+			</div>
+			<div>
+				<label>Category</label>
+				<input type="text" ng-model="newTopic.category">
+			</div>
+			<input type="submit" ng-click="addTopic()">
+		</form>
+	</div>
+</div>

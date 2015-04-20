@@ -1,0 +1,31 @@
+<div ng-controller="topicController">
+	<div class="row">
+		<ul>
+			<li><a href="#/dashboard">Dashboard</a></li>
+			<li><a href="#/" ng-click="logout()">Logout</a></li>
+		</ul>
+	</div>
+	<div class="row">
+		<h4><a href="#/user/{{topic.author}}" ng-bind="topic.author"></a> posted a topic:</h4>
+		<p style="font-weight: bold" ng-bind="topic.name"></p>
+		<p ng-bind="topic.description"></p>
+		<h5>Post Your Answer Here:</h5>
+		<textarea ng-model="newMessage.message"></textarea>
+		<input type="submit" value="Post" ng-click="addMessage()">
+		<hr>
+	</div>
+	<div class="row" ng-repeat="message in messages track by $index">
+		<p>
+			<a href="#/{{message.author}}" ng-bind="message.author"></a>:
+			<span ng-bind="message.message"></span>
+			<textarea ng-model="message.newComment.comment"></textarea>
+			<div style="margin-left: 20px" ng-repeat="comment in message.comments track by $index">
+				<a href="#/user/{{comment.author}}" ng-bind="comment.author"></a>:
+				<span ng-bind="comment.comment"></span>
+			</div>
+			<input type="hidden" ng-model="message.newComment.id" value="{{message._id}}">
+			<input type="submit" value="Comment" ng-click="addComment()">
+		</p>
+		<hr>
+	</div>
+</div>

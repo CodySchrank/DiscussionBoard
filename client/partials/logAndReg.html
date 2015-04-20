@@ -1,0 +1,43 @@
+<div class="row" ng-controller="logAndRegController">
+	<div class="one-half column">
+		<h2>Register</h2>
+		<form>
+			<div>
+				<label>Name:<span ng-show="errors.name"> {{errors.name[0]}}</span></label>
+				<input type="text" ng-model="newUser.name">
+			</div>
+			<div>
+				<label>User Name:<span ng-show="errors.username"> {{errors.username[0]}}</span> <span ng-show="errors.usernameTaken"> {{errors.usernameTaken[0]}}</span></label>
+				<input type="text" ng-model="newUser.username">
+			</div>
+			<div>
+				<label>Email: <span ng-show="errors.email"> {{errors.email[0]}}</span> <span ng-show="errors.emailTaken"> {{errors.emailTaken[0]}}</span></label>
+				<input type="text" ng-model="newUser.email">
+			</div>
+			<div>
+				<label>Password: <span ng-show="errors.password"> {{errors.password[0]}}</span></label>
+				<input type="password" ng-model="newUser.password">
+			</div>
+			<div>
+				<label>Confirm Password: <span ng-show="errors.confirm"> {{errors.confirm[0]}}</span></label>
+				<input type="password" ng-model="newUser.confirm">
+			</div>
+			<input type="submit" ng-click="addUser()">
+		</form>
+	</div>
+	<div class="one-half column">
+		<h2>Login</h2>
+		<p ng-show="loginError">{{loginError}}</p>
+		<form>
+			<div>
+				<label>Email:</label>
+				<input type="text" ng-model="user.email">
+			</div>
+			<div>
+				<label>Password:</label>
+				<input type="password" ng-model="user.password">
+			</div>
+			<input type="submit" ng-click="login()">
+		</form>
+	</div>
+</div>

@@ -1,0 +1,10 @@
+<div ng-controller="userController">
+		<ul>
+			<li><a href="#/dashboard">Dashboard</a></li>
+			<li><a href="#/" ng-click="logout()">Logout</a></li>
+		</ul>
+	<h5>Name: <span ng-bind="userInfo.name"></span></h5>
+	<h5>Username: <span ng-bind="userInfo.username"></span></h5>
+	<h5>Email: <span ng-bind="userInfo.email"></span></h5>
+	<h5>Joined: <span ng-bind="userInfo.created_date"></span></h5>
+</div>
